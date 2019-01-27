@@ -10,5 +10,6 @@ Minimalistic reactjs boilerplate!
 ### Available scripts so far
 ``` npm run start ```
 Starts webpack-dev-server with hot reload. You can change port and host in the config files.
+
 ``` npm run unit ```
 Run jest unit tests. It will run any file with .test or .spec on the repo. You can change the regex in jest config.
