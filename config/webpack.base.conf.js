@@ -10,7 +10,7 @@ function resolve(dir) {
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: ['@babel/polyfill', './src/index.js']
+    app: ['@babel/polyfill', './src/index.tsx']
   },
   mode: 'production',
   output: {
@@ -30,13 +30,22 @@ module.exports = {
     hints: false
   },
   resolve: {
-    extensions: ['.js', '.json'],
+    extensions: [".ts", ".tsx", ".js", ".json"],
     alias: {
       '@': resolve('src')
     }
   },
   module: {
     rules: [
+      { 
+        test: /\.tsx?$/, 
+        loader: "awesome-typescript-loader" 
+      },
+      { 
+        enforce: "pre",
+        test: /\.js$/,
+        loader: "source-map-loader"
+      },
       {
         test: /\.js$/,
         use: {loader: 'babel-loader'},
