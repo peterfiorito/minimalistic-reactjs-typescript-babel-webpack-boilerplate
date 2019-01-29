@@ -12,12 +12,22 @@ module.exports = {
   entry: {
     app: ['@babel/polyfill', './src/index.js']
   },
+  mode: 'production',
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
+    chunkFilename: '[name].bundle.js',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+      }
+  },
+  performance: {
+    hints: false
   },
   resolve: {
     extensions: ['.js', '.json'],
@@ -38,6 +48,20 @@ module.exports = {
         options: {
           limit: 1000
         }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: "style-loader" // creates style nodes from JS strings
+          },
+          {
+            loader: "css-loader" // translates CSS into CommonJS
+          },
+          {
+            loader: "sass-loader" // compiles Sass to CSS
+          }
+        ]
       }
     ]
   },
