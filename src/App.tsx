@@ -3,7 +3,6 @@ import { hot } from 'react-hot-loader/root'
 
 
 export default class App extends React.Component {
-  filteredTodos = [{id: 1, completed: false, text: 'test'}];
   render() {
     return (
       <div className="App">
