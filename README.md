@@ -13,3 +13,5 @@ Starts webpack-dev-server. You can change port and host in the config files.
 
 ``` npm run test ```
 Run jest tests. It will run any file with .test or .spec on the repo. You can change the regex in jest config.
+
+Remember to run `npm install` to install all required dependencies.
